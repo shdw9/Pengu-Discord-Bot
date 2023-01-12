@@ -70,8 +70,8 @@ async def checkLp(summoner):
             if tftLp[summoner["name"]][queueType]["rank"] != currentRank:
                 print(summoner["name"] + " rank update: " + tftLp[summoner["name"]][queueType]["rank"] + " --> " + currentRank)
                 embed=discord.Embed(timestamp=datetime.datetime.utcnow(), color=0xff00ff)
-                embed.set_author(name="🚨 " + summoner.upper() + " TFT RANK UPDATE 🚨",icon_url="https://ddragon.leagueoflegends.com/cdn/" + latestVersion + "/img/profileicon/" + str(summoner["profileIconId"]) + ".png")
-                embed.add_field(name=queueType,value=tftLp[summoner][queueType]["rank"] + " **----->** " + currentRank)
+                embed.set_author(name="🚨 " + summoner["name"].upper() + " TFT RANK UPDATE 🚨",icon_url="https://ddragon.leagueoflegends.com/cdn/" + latestVersion + "/img/profileicon/" + str(summoner["profileIconId"]) + ".png")
+                embed.add_field(name=queueType,value=tftLp[summoner["name"]][queueType]["rank"] + " **----->** " + currentRank)
                 embed.set_footer(text="powered by shdw 👻",icon_url="https://i.imgur.com/ri6NrsN.png")
                 embed.set_image(url=rankIcons[league["tier"]])
                 await bot.get_channel(int(channelId)).send(embed=embed)
@@ -80,7 +80,7 @@ async def checkLp(summoner):
             elif tftLp[summoner["name"]][queueType]["leaguePoints"] < currentLp:
                 print(summoner["name"] + " gained " + str(currentLp - tftLp[summoner["name"]][queueType]["leaguePoints"]) + "LP!")
                 embed=discord.Embed(description="**+" + str(currentLp - tftLp[summoner["name"]][queueType]["leaguePoints"]) + "** LP in " + queueType,timestamp=datetime.datetime.utcnow(), color=0x62C979)
-                embed.set_author(name="🚨 " + summoner.upper() + " TFT LP UPDATE 🚨",icon_url="https://ddragon.leagueoflegends.com/cdn/" + latestVersion + "/img/profileicon/" + str(summoner["profileIconId"]) + ".png")
+                embed.set_author(name="🚨 " + summoner["name"].upper() + " TFT LP UPDATE 🚨",icon_url="https://ddragon.leagueoflegends.com/cdn/" + latestVersion + "/img/profileicon/" + str(summoner["profileIconId"]) + ".png")
                 embed.add_field(name=queueType,value=currentRank + " - " + str(currentLp) + " LP")
                 embed.set_footer(text="powered by shdw 👻",icon_url="https://i.imgur.com/ri6NrsN.png")
                 embed.set_thumbnail(url="https://i.imgur.com/0m1B3Et.png")
@@ -90,7 +90,7 @@ async def checkLp(summoner):
             elif tftLp[summoner["name"]][queueType]["leaguePoints"] > currentLp:
                 print(summoner["name"] + " lost " + str(tftLp[summoner["name"]][queueType]["leaguePoints"] - currentLp) + "LP!")
                 embed=discord.Embed(description="*-" + str(tftLp[summoner["name"]][queueType]["leaguePoints"] - currentLp) + "* LP in " + queueType,timestamp=datetime.datetime.utcnow(), color=0xE7548C)
-                embed.set_author(name="🚨 " + summoner.upper() + " TFT LP UPDATE 🚨",icon_url="https://ddragon.leagueoflegends.com/cdn/" + latestVersion + "/img/profileicon/" + str(summoner["profileIconId"]) + ".png")
+                embed.set_author(name="🚨 " + summoner["name"].upper() + " TFT LP UPDATE 🚨",icon_url="https://ddragon.leagueoflegends.com/cdn/" + latestVersion + "/img/profileicon/" + str(summoner["profileIconId"]) + ".png")
                 embed.add_field(name=queueType,value=currentRank + " - " + str(currentLp) + " LP")
                 embed.set_footer(text="powered by shdw 👻",icon_url="https://i.imgur.com/ri6NrsN.png")
                 embed.set_thumbnail(url="https://i.imgur.com/bTORHF3.png")
